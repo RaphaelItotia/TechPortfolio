@@ -45,6 +45,18 @@ a {
     font-weight: bold;
 }
 
+#main-nav .logo a {
+    color: inherit; /* Inherits the color from its parent .logo, which is white */
+    text-decoration: none; /* Removes the underline */
+    cursor: default; /* Changes the cursor from a pointer to the default arrow */
+}
+
+/* Optional: If you want to prevent the default hover effect on links */
+#main-nav .logo a:hover {
+    color: inherit; /* Ensures the color doesn't change on hover */
+    text-decoration: none; /* Ensures no underline appears on hover */
+}
+
 #main-nav .nav-links {
     list-style: none;
     display: flex;
@@ -819,4 +831,5 @@ footer p {
     .social-icons a {
         font-size: 20px;
     }
+
 }
