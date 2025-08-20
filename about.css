@@ -180,7 +180,7 @@ footer p {
     border-radius: var(--spacing-md);
     box-shadow: 0 12px 35px var(--clr-shadow-medium);
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .hero-left-panel {
@@ -797,5 +797,6 @@ footer p {
     }
 
 }
+
 
 
