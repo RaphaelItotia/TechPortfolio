@@ -1,0 +1,822 @@
+/* ========================================= */
+/* BASE STYLES (Applies to all devices, Desktop-First Approach) */
+/* ========================================= */
+
+/* General Body and Font Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.7;
+    scroll-behavior: smooth;
+    font-size: 22px; /* Base font size for desktop */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header and Navigation */
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: calc(100% - 100px); /* Account for padding */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+#main-nav.scrolled {
+    background-color: rgba(51, 51, 51, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+#main-nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#main-nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#main-nav .nav-links li {
+    margin-left: 30px;
+}
+
+#main-nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    display: block;
+}
+
+#main-nav .nav-links a:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#main-nav .nav-links a.active {
+    background-color: #007bff;
+}
+
+/* Hamburger menu (Hidden by default on Desktop) */
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Main Content Padding */
+main {
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #0d1a2f;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+    background-image:
+        linear-gradient(rgba(13, 26, 47, 0.6), rgba(13, 26, 47, 0.6)),
+        url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZG');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #0d1a2f;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+#explore-blog-btn {
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+#explore-blog-btn:hover {
+    background-color: #218838;
+}
+
+#explore-blog-btn.glowing {
+    box-shadow: 0 0 15px 5px rgba(40, 167, 69, 0.7);
+}
+
+/* Intro Services Section */
+.intro-services-section {
+    padding: 70px 60px;
+    text-align: center;
+    background-color: white;
+}
+
+.intro-text {
+    font-size: 1.3em;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+}
+
+.service-boxes-container {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+.service-box {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 30px 20px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 150px;
+    max-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-box i {
+    font-size: 50px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.service-box p {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* Card Sections (Blog Posts & Projects) */
+.cards-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.cards-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    gap: 100px;
+    margin-top: 30px;
+    justify-items: center;
+    align-content: start;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+    text-align: left;
+    width: 300px; /* Fixed width for desktop cards */
+    max-width: 100%;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+    padding: 0 15px;
+    font-size: 1.4em;
+    color: #0d1a2f;
+}
+
+.card p {
+    padding: 0 15px 15px;
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    max-height: calc(3 * 1.5em + 0.5em);
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.card p.expanded {
+    -webkit-line-clamp: unset;
+    max-height: none;
+    overflow: visible;
+}
+
+.card .read-more-toggle {
+    display: block;
+    text-align: right;
+    padding: 0 15px 10px;
+    margin-top: -10px;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.85em;
+    transition: color 0.2s ease;
+}
+
+.card .read-more-toggle:hover {
+    color: #0056b3;
+}
+
+/* Card Tags Styling */
+.card .card-tags {
+    padding: 0 15px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.card .card-tags .tag {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.55em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Specific tag colors */
+.tag.green-tag {
+    background-color: #28a745;
+}
+
+.tag.purple-tag {
+    background-color: #6f42c1;
+}
+
+.tag.orange-tag {
+    background-color: #fd7e14;
+}
+
+/* Blog Post Specific Tags */
+.blog-card .tag {
+    color: white;
+}
+
+/* Project Specific Tags */
+.project-card .card-tags .tag {
+    background-color: #87CEEB; /* Sky Blue for all project tags */
+    color: #000080; /* Dark Blue font for project tags */
+}
+
+/* Blog Card Specifics */
+.blog-card .card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.blog-card {
+    cursor: pointer;
+}
+
+/* Project Card Specifics */
+.project-card {
+    cursor: default;
+}
+
+.project-card .project-links {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 15px;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.project-card .project-links .icon-link {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.95em;
+    transition: color 0.2s ease;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.project-card .project-links .icon-link:hover {
+    color: #0056b3;
+}
+
+/* Email Listing Section */
+.email-listing-section {
+    background-color: #e9ecef;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.email-listing-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#email-subscribe-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#email-subscribe-form input[type="email"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#email-subscribe-form button {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+#email-subscribe-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Contact Section */
+.contact-form-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.contact-form-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+#contact-form button {
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease;
+    align-self: flex-end;
+}
+
+#contact-form button:hover {
+    background-color: #218838;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+/* ========================================= */
+/* TABLET MODE (Max-width: 1024px) */
+/* ========================================= */
+@media (max-width: 1024px) {
+    body {
+        font-size: 18px; /* Slightly smaller base font for tablets */
+    }
+
+    #main-nav {
+        padding: 15px 30px;
+        width: calc(100% - 60px);
+    }
+
+    #main-nav .logo {
+        font-size: 22px;
+    }
+
+    #main-nav .nav-links li {
+        margin-left: 20px;
+    }
+
+    .hero-section {
+        padding: 90px 20px;
+        min-height: 350px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    /* Intro Services Section - Tablet Adjustments */
+    .intro-services-section {
+        padding: 60px 40px;
+    }
+
+    .intro-text {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+    }
+
+    .service-boxes-container {
+        gap: 80px; /* Reduced gap for tablets */
+    }
+
+    .service-box {
+        padding: 25px 15px;
+    }
+
+    .service-box i {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .service-box p {
+        font-size: 1em;
+    }
+
+    /* Card Sections - Tablet Adjustments */
+    .cards-section {
+        padding: 40px 30px;
+    }
+
+    .cards-section h2 {
+        font-size: 2.3em;
+        margin-bottom: 35px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        gap: 40px; /* Reduced gap for tablets */
+        max-width: 700px; /* Adjust max-width for tablet layout */
+    }
+
+    .card {
+        width: 100%; /* Allow cards to take full width of their grid column */
+    }
+
+    .email-listing-section {
+        padding: 50px 20px;
+    }
+
+    .email-listing-section h3 {
+        font-size: 1.6em;
+    }
+
+    #email-subscribe-form {
+        gap: 10px;
+        max-width: 500px;
+    }
+
+    .contact-form-section {
+        padding: 50px 20px;
+    }
+
+    .contact-form-section h2 {
+        font-size: 2.3em;
+    }
+
+    #contact-form {
+        max-width: 600px;
+        padding: 25px;
+    }
+
+    footer {
+        padding: 20px 30px;
+    }
+}
+
+/* ========================================= */
+/* MOBILE MODE (Max-width: 767px) */
+/* ========================================= */
+@media (max-width: 767px) { /* Changed from 768px to 767px for common practice */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    #main-nav {
+        padding: 15px 20px; /* Further reduced padding */
+        width: calc(100% - 40px);
+    }
+
+    #main-nav .logo {
+        font-size: 20px; /* Smaller logo on mobile */
+    }
+
+    #main-nav .nav-links {
+        display: none; /* Hide navigation links */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: rgba(51, 51, 51, 0.95);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    #main-nav .nav-links.show {
+        display: flex; /* Show when hamburger menu is toggled */
+    }
+
+    #main-nav .nav-links li {
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #main-nav .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    #main-nav .nav-links a {
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu on mobile */
+    }
+
+    main {
+        padding-top: 30px; /* Ensure content is below header */
+    }
+
+    .hero-section {
+        padding: 60px 15px; /* Reduced padding for smaller screens */
+        min-height: 310px; /* Smaller min-height for hero */
+    }
+
+    .hero-section h1 {
+        font-size: 2em; /* Smaller heading on mobile */
+        margin-bottom: 25px;
+    }
+
+    #explore-blog-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    /* Intro Services Section - Mobile Adjustments (single row, smaller items) */
+    .intro-services-section {
+        padding: 30px 10px;
+    }
+
+    .intro-text {
+        font-size: 1em;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .service-boxes-container {
+        gap: 10px; /* Smaller gap */
+        padding: 0 5px;
+        flex-direction: row; /* Stack vertically on very small screens */
+        align-items: stretch; /* Center boxes when stacked */
+    }
+
+    .service-box {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        min-width: 0;
+        padding: 10px 3px;
+        border-radius: 5px;
+    }
+
+    .service-box i {
+        font-size: 30px;
+        margin-bottom: 8px;
+    }
+
+    .service-box p {
+        font-size: 0.9em;
+        line-height: 1.2;
+    }
+
+    /* Card Sections - Mobile Adjustments (single column) */
+    .cards-section {
+        padding: 20px 15px;
+    }
+
+    .cards-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 20px;
+        max-width: 350px; /* Limit width of container for single card mode */
+    }
+
+    .card {
+        width: 100%; /* Take full width of the limited container */
+    }
+
+    .card h3 {
+        font-size: 1.2em;
+        margin: 10px 0 5px;
+        padding: 0 10px;
+    }
+
+    .card p {
+        font-size: 0.9em;
+        padding: 0 10px 10px;
+        -webkit-line-clamp: 4; /* Maybe allow 4 lines on mobile for slightly more text */
+        max-height: calc(4 * 1.5em + 0.5em);
+    }
+
+    .card .read-more-toggle {
+        padding: 0 10px 8px;
+        font-size: 0.8em;
+    }
+
+    .card .card-tags {
+        padding: 0 8px 6px;
+        gap: 1px;
+    }
+
+    .card .card-tags .tag {
+        padding: 0px 2px;
+        font-size: 0.45em; /* Even smaller font for tags on mobile */
+    }
+
+    .blog-card .date {
+        font-size: 0.75em;
+        padding: 0 10px 10px;
+    }
+
+    .project-card .project-links .icon-link {
+        font-size: 0.8em;
+        gap: 3px;
+    }
+
+    .email-listing-section {
+        padding: 30px 15px;
+    }
+
+    .email-listing-section h3 {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+    }
+
+    #email-subscribe-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #email-subscribe-form input[type="email"],
+    #email-subscribe-form button {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .contact-form-section {
+        padding: 30px 15px;
+    }
+
+    .contact-form-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    #contact-form {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    #contact-form input,
+    #contact-form textarea,
+    #contact-form button {
+        width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        font-size: 0.8em;
+    }
+
+    .social-icons {
+        margin-top: 8px;
+        gap: 15px;
+    }
+
+    .social-icons a {
+        font-size: 20px;
+    }
+}
