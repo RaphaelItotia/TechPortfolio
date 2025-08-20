@@ -668,7 +668,7 @@ footer p {
 
     .hero-section {
         padding: 60px 15px; /* Reduced padding for smaller screens */
-        min-height: 280px; /* Smaller min-height for hero */
+        min-height: 250px; /* Smaller min-height for hero */
     }
 
     .hero-section h1 {
@@ -833,6 +833,7 @@ footer p {
     }
 
 }
+
 
 
 
